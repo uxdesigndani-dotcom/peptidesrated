@@ -2,13 +2,29 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Plus, Paperclip, Globe, RotateCcw, Send } from "lucide-react";
+import { Plus, Paperclip, Globe, RotateCcw, Send, Sparkles } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+
+interface Therapist {
+  name: string;
+  specialty: string;
+  approach: string;
+  matchReason: string;
+  videoMessage: string;
+}
+
+interface QuestionCardProps {
+  onTherapistsFound: (therapists: Therapist[]) => void;
+}
 
 const topics = ["Anxiety", "Relationships", "Burnout", "Self-esteem"];
 
-export const QuestionCard = () => {
+export const QuestionCard = ({ onTherapistsFound }: QuestionCardProps) => {
+  const { toast } = useToast();
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const toggleTopic = (topic: string) => {
     setSelectedTopics(prev => 
@@ -16,6 +32,48 @@ export const QuestionCard = () => {
         ? prev.filter(t => t !== topic)
         : [...prev, topic]
     );
+  };
+
+  const handleSearch = async () => {
+    if (!message.trim() && selectedTopics.length === 0) {
+      toast({
+        title: "Please share what you're working through",
+        description: "Add a message or select topics to get personalized matches",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke("match-therapist", {
+        body: { message: message.trim(), topics: selectedTopics }
+      });
+
+      if (error) throw error;
+
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+
+      if (data?.therapists) {
+        onTherapistsFound(data.therapists);
+        toast({
+          title: "Found your matches!",
+          description: `We found ${data.therapists.length} therapists who would be a great fit`,
+        });
+      }
+    } catch (error) {
+      console.error("Error matching therapists:", error);
+      toast({
+        title: "Something went wrong",
+        description: error instanceof Error ? error.message : "Please try again",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -65,8 +123,17 @@ export const QuestionCard = () => {
             <Button variant="ghost" size="icon" className="h-9 w-9 text-card-dark-foreground/60 hover:text-card-dark-foreground hover:bg-card-dark-foreground/10">
               <RotateCcw className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-9 w-9 text-card-dark-foreground/60 hover:text-card-dark-foreground hover:bg-card-dark-foreground/10">
-              <Send className="h-5 w-5" />
+            <Button 
+              onClick={handleSearch}
+              disabled={isLoading}
+              size="icon" 
+              className="h-9 w-9 bg-accent hover:bg-accent/90 text-accent-foreground"
+            >
+              {isLoading ? (
+                <div className="h-5 w-5 border-2 border-accent-foreground/30 border-t-accent-foreground rounded-full animate-spin" />
+              ) : (
+                <Sparkles className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
