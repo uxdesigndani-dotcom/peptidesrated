@@ -19,7 +19,7 @@ const Index = () => {
         {/* Hero Section */}
         <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-normal mb-6 leading-tight">
-            Where finding a therapist feels human
+            Where finding a therapist<br />feels human
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground">
             Short videos and verified profiles that help you connect before you commit
