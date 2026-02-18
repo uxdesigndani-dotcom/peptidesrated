@@ -1,0 +1,4 @@
+# Serve sitemap as static file (must come before SPA fallback)
+/sitemap.xml  /sitemap.xml  200
+# SPA fallback for client-side routing
+/*  /index.html  200
