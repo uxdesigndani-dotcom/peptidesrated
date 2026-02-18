@@ -22,54 +22,74 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/suppliers/supplier-1</loc>
+    <loc>https://peptidesrated.com/blog/best-bpc-157-suppliers-2025</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/suppliers/supplier-2</loc>
+    <loc>https://peptidesrated.com/supplier/pinnacle</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/suppliers/supplier-3</loc>
+    <loc>https://peptidesrated.com/supplier/ascension</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/suppliers/supplier-4</loc>
+    <loc>https://peptidesrated.com/supplier/apollo</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/use-cases/use-case-1</loc>
+    <loc>https://peptidesrated.com/supplier/royal</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/use-cases/use-case-2</loc>
+    <loc>https://peptidesrated.com/best-peptides-for-muscle-recovery</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/use-cases/use-case-3</loc>
+    <loc>https://peptidesrated.com/best-peptides-for-weight-loss</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://peptidesrated.com/best-peptides-for-anti-aging</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://peptidesrated.com/faq</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/privacy-policy</loc>
+    <loc>https://peptidesrated.com/about</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://peptidesrated.com/disclaimer</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://peptidesrated.com/terms-of-service</loc>
+    <loc>https://peptidesrated.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://peptidesrated.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://peptidesrated.com/sitemap</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>`;
 
