@@ -2,6 +2,8 @@
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/api/sitemap.xml" },
     { "source": "/robots.txt", "destination": "/api/robots.txt" },
+    { "source": "/menopause", "destination": "https://menopause-quiz-uxdesigndani-dotcom.vercel.app/menopause" },
+    { "source": "/menopause/(.*)", "destination": "https://menopause-quiz-uxdesigndani-dotcom.vercel.app/menopause/$1" },
     { "source": "/", "destination": "https://curry-violet-65402771.figma.site/" },
     {
       "source": "/(.*)",
